@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css" >
+</head>
+<body>
+    <%- include('header.ejs') %>
+
+<section class="card-wrapper">
+        <div class="card-grid">
+            <% cards.forEach((card) => { %>
+                <article class="card">
+                    <img src="<%= card.image %>" alt="<%= card.title %>" class="card-image" />
+                    <div class="card-body">
+                        <h2 class="card-title"><%= card.title %></h2>
+                        <p class="card-role"><%= card.role %></p>
+                        <p class="card-desc"><%= card.description %></p>
+                    </div>
+                </article>
+                 <% }); %>
+        </div>
+             %>
+</section>
+</body>
+</html>

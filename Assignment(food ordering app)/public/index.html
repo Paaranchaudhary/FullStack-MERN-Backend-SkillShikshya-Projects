@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bite&nbsp;Express 🍽️</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">Bite<span>Express</span></div>
+  <nav class="tabs">
+    <button class="tab-btn active" data-view="menu">Menu</button>
+    <button class="tab-btn" data-view="track">Track Order</button>
+    <button class="tab-btn" data-view="admin">Kitchen</button>
+  </nav>
+  <button id="cartToggle" class="cart-toggle">
+    🛒 <span id="cartCount">0</span>
+  </button>
+</header>
+
+<main>
+
+  <!-- MENU VIEW -->
+  <section id="view-menu" class="view active">
+    <div class="category-bar" id="categoryBar"></div>
+    <div class="menu-grid" id="menuGrid">Loading menu…</div>
+  </section>
+
+  <!-- TRACK VIEW -->
+  <section id="view-track" class="view">
+    <div class="card narrow">
+      <h2>Track your order</h2>
+      <div class="row">
+        <input id="trackInput" placeholder="Enter order ID (e.g. 3f9a1b2c)" />
+        <button id="trackBtn" class="primary">Track</button>
+      </div>
+      <div id="trackResult"></div>
+    </div>
+  </section>
+
+  <!-- ADMIN VIEW -->
+  <section id="view-admin" class="view">
+    <div class="card wide">
+      <div class="row space-between">
+        <h2>Kitchen dashboard</h2>
+        <button id="refreshOrders" class="secondary">Refresh</button>
+      </div>
+      <div id="ordersList">No orders yet.</div>
+    </div>
+  </section>
+
+</main>
+
+<!-- CART DRAWER -->
+<div id="cartOverlay" class="overlay"></div>
+<aside id="cartDrawer" class="cart-drawer">
+  <div class="cart-header">
+    <h2>Your Cart</h2>
+    <button id="closeCart" class="icon-btn">✕</button>
+  </div>
+  <div id="cartItems" class="cart-items">Your cart is empty.</div>
+  <div class="cart-summary" id="cartSummary"></div>
+
+  <form id="checkoutForm" class="checkout-form hidden">
+    <h3>Delivery details</h3>
+    <input name="customerName" placeholder="Full name" required />
+    <input name="phone" placeholder="Phone number" required />
+    <input name="address" placeholder="Delivery address" required />
+    <textarea name="notes" placeholder="Notes (optional)" rows="2"></textarea>
+    <button type="submit" class="primary full">Place order</button>
+  </form>
+</aside>
+
+<!-- ORDER CONFIRMATION MODAL -->
+<div id="confirmOverlay" class="overlay"></div>
+<div id="confirmModal" class="modal">
+  <h2>🎉 Order placed!</h2>
+  <p>Your order ID is:</p>
+  <div class="order-id" id="confirmOrderId"></div>
+  <p class="muted">Save this ID to track your order status.</p>
+  <button id="confirmClose" class="primary full">Done</button>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
